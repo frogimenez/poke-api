@@ -1,1 +1,7 @@
-<p>poke-table works!</p>
+
+<ng-container *ngFor="let pokemon of pokemonList | keyvalue ">
+    <mat-card>
+        <mat-card-content>{{pokemon}}</mat-card-content>
+    </mat-card>
+</ng-container>
+
