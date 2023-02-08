@@ -8,7 +8,8 @@ import { PokemonService } from '../../services/pokemon.service';
 })
 export class PokeTableComponent implements OnInit {
 
-  public pokemonList = [];
+  public pokemonList:any[] = [];
+  
 
 
   constructor(
@@ -16,13 +17,26 @@ export class PokeTableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.pokemonService.getAllPokemons().subscribe(pokemon =>  {
-      
-      console.log("🚀 ~ file: poke-table.component.ts:23 ~ PokeTableComponent ~ this.pokemonService.getAllPokemons ~ pokemon", pokemon)
-      this.pokemonList = pokemon.results
-      console.log("🚀 ~ file: poke-table.component.ts:23 ~ PokeTableComponent ~ this.pokemonService.getAllPokemons ~ pokemonList", this.pokemonList)
-    })
-    this.pokemonService.getPokemons(10).subscribe(pokemon =>  console.log(pokemon.species.name));
+    this.getPokemons();
+  }
+
+  getPokemons() {
+    
+    for (let i = 1; i <= 1; i++) {
+      this.pokemonService.getPokemons(i).subscribe(
+        res => {
+          let pokemonData = {
+            position: i,
+            image: res.sprites.front_default,
+            name: res.name,
+            ability: res.abilities
+          };
+          console.log('RES',res);
+          this.pokemonList.push(pokemonData);
+          console.log(this.pokemonList);
+        },
+      );
+    }
   }
 
 }

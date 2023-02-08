@@ -13,11 +13,11 @@ export class PokemonService {
     private http:HttpClient,
   ) { }
   
-  getAllPokemons(){
-    return this.http.get<any>(`${this.baseUrl}/pokemon`);
-  }
-
   getPokemons(index:number){
     return this.http.get<any>(`${this.baseUrl}/pokemon/${index}`);
   }
+
+  // getPokemons(index:number){
+  //   return this.http.get<any>(`${this.baseUrl}/pokemon/${index}`);
+  // }
 }
