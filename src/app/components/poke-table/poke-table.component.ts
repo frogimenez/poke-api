@@ -19,17 +19,19 @@ export class PokeTableComponent implements OnInit {
   ngOnInit(): void {
     this.getPokemons();
   }
-
+  /**
+   * get pokemons by certainnumber at the for loop
+   */
   getPokemons() {
     
-    for (let i = 1; i <= 1; i++) {
+    for (let i = 1; i <= 600; i++) {
       this.pokemonService.getPokemons(i).subscribe(
         res => {
           let pokemonData = {
             position: i,
             image: res.sprites.front_default,
-            name: res.name,
-            ability: res.abilities
+            name:  res.name.toUpperCase(),
+            ability: res.abilities.map((r: any) => console.log(r))
           };
           console.log('RES',res);
           this.pokemonList.push(pokemonData);

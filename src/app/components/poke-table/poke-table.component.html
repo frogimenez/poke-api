@@ -1,8 +1,11 @@
 
 <ng-container *ngFor="let pokemon of pokemonList">
-    <mat-card>
-        <mat-card-content>{{pokemon.name}}</mat-card-content>
-        <img src='{{pokemon.image}}' alt="">
+    <mat-card class="poke-card">
+        <mat-card-content>
+            <p class="poke-card-name">{{ pokemon.name }}</p>
+            <img src='{{ pokemon.image }}' alt="" width="100" height="100">
+        </mat-card-content>
+        
     </mat-card>
 </ng-container>
 
