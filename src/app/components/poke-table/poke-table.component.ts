@@ -24,18 +24,18 @@ export class PokeTableComponent implements OnInit {
    */
   getPokemons() {
     
-    for (let i = 1; i <= 600; i++) {
+    for (let i = 1; i <= 60; i++) {
       this.pokemonService.getPokemons(i).subscribe(
         res => {
           let pokemonData = {
             position: i,
             image: res.sprites.front_default,
             name:  res.name.toUpperCase(),
-            ability: res.abilities.map((r: any) => console.log(r))
+            ability: res.abilities.map((r: any) => console.log('HABILITIES',r))
           };
           console.log('RES',res);
           this.pokemonList.push(pokemonData);
-          console.log(this.pokemonList);
+          console.log('POKEMONLIST',this.pokemonList);
         },
       );
     }
